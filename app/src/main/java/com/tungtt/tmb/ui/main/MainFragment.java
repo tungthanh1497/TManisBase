@@ -1,39 +1,51 @@
 package com.tungtt.tmb.ui.main;
 
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.tungtt.tmb.R;
+import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
 
-public class MainFragment extends Fragment {
+import com.tungtt.tmb.MainActivity;
+import com.tungtt.tmb.databinding.FragmentMainBinding;
+import com.tungtt.tmb.ui.second.SecondFragment;
+import com.tungtt.tmb.util.ActivityUtils;
+import com.tungtt.tmb.util.Constants;
+import com.tungtt.tmbmodule.common.FragmentBase;
 
-    private MainViewModel mViewModel;
+public class MainFragment extends FragmentBase<MainActivity, FragmentMainBinding, MainViewModel> {
 
     public static MainFragment newInstance() {
         return new MainFragment();
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
-        // TODO: Use the ViewModel
+    public MainViewModel initViewModel() {
+        return new ViewModelProvider(this).get(MainViewModel.class);
     }
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_main, container, false);
+    public FragmentMainBinding initBinding(LayoutInflater inflater, ViewGroup container) {
+        return FragmentMainBinding.inflate(inflater, container, false);
+    }
+
+    @Override
+    public void onReceiveData(@NonNull Bundle data) {
+
+    }
+
+    @Override
+    protected void implementListeners(View view) {
+        mBinding.btnNext.setOnClickListener(view1 -> {
+            mActivity.showProgressDialog();
+            ActivityUtils.addScreen(SecondFragment.newInstance(), Constants.TAG_SCREEN.SECOND);
+        });
+    }
+
+    @Override
+    protected void init(View view) {
     }
 
 }
