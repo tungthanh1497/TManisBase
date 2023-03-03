@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ButtonBase">
+        <attr name="typeButton">
+            <enum name="fill" value="0" />
+            <enum name="border" value="1" />
+            <enum name="disable" value="2" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="EditTextBase">
+        <attr name="typeEditText">
+            <enum name="disable" value="0" />
+            <enum name="enable" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>

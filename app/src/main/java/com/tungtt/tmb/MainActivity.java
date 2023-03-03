@@ -1,12 +1,11 @@
 package com.tungtt.tmb;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 import com.tungtt.tmb.ui.main.MainFragment;
+import com.tungtt.tmbmodule.common.ActivityBase;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ActivityBase {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
