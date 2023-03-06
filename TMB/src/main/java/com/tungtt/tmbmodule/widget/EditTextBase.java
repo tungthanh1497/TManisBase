@@ -13,6 +13,8 @@ import com.tungtt.tmbmodule.util.Utils;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.text.Normalizer;
+import java.util.regex.Pattern;
 
 public class EditTextBase extends AppCompatEditText {
 
@@ -64,6 +66,20 @@ public class EditTextBase extends AppCompatEditText {
         this.changeState(state);
 
         this.setPadding(Utils.dp2px(context, 16), Utils.dp2px(context, 8), Utils.dp2px(context, 16), Utils.dp2px(context, 8));
+    }
+
+    public String getString() {
+        return getText() == null ? "" : getText().toString();
+    }
+
+    public String getStringFormat() {
+        return getString().replaceAll("\\s+", " ").trim();
+    }
+
+    public String getStringNormalize() {
+        String temp = Normalizer.normalize(getStringFormat(), Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        return pattern.matcher(temp).replaceAll("").toLowerCase().replaceAll("đ", "d");
     }
 
     private void changeState(boolean isEnable) {
