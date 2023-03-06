@@ -13,7 +13,7 @@ Step 1. Add the JitPack repository to your root build.gradle at the end of repos
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.tungthanh1497:TManisBase:1.0.0'
+	        implementation 'com.github.tungthanh1497:TManisBase:1.0.1'
 	}
 </p>
 
@@ -32,7 +32,7 @@ Step 2. Add the dependency
 	<dependency>
 	    <groupId>com.github.tungthanh1497</groupId>
 	    <artifactId>TManisBase</artifactId>
-	    <version>1.0.0</version>
+	    <version>1.0.1</version>
 	</dependency>
 </p>
 
@@ -47,7 +47,7 @@ Step 1. Add the JitPack repository to your  build.sbt at the end of resolvers:
 Step 2. Add the dependency
 
 	
-	libraryDependencies += "com.github.tungthanh1497" % "TManisBase" % "1.0.0"	
+	libraryDependencies += "com.github.tungthanh1497" % "TManisBase" % "1.0.1"	
 </p>
 
 <p>
@@ -61,5 +61,5 @@ Step 1. Add the JitPack repository to your project.clj at the end of repositorie
 Step 2. Add the dependency
 
 	
-	:dependencies [[com.github.tungthanh1497/TManisBase "1.0.0"]]	
+	:dependencies [[com.github.tungthanh1497/TManisBase "1.0.1"]]	
 </p>
